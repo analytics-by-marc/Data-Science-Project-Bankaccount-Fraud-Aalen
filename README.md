@@ -1,7 +1,7 @@
 # Data-Science-Project-Bankaccount-Fraud-Aalen
 Erstellt mit Python Version 3.10.18
 
-🔍 Projektziele
+Projektziele
 
     Mindestens 75 % der Betrugsfälle sollen erkannt werden
     
@@ -15,196 +15,59 @@ Erstellt mit Python Version 3.10.18
 
     Visualisierung der Modellperformance
 
-📂 Inhalt
+Datenvorbereitung
 
-    Datenvorbereitung
+    Entfernen irrelevanter Spalten
 
-        Laden & Prüfen des Datensatzes
-
-        Umgang mit fehlenden Werten
-
-        Entfernen von Spalten mit >50 % Missing Values
-
-        Encoding & Skalierung
-
-        Varianzanalyse und Entfernen von Spalten
-
-        Entfernen von Features mit hoher Korrelation
-
-    Datenanalyse
-
-        Verteilungen aller Features
-
-        Crosstabs für geschützte Attribute
-
-        Analyse der Rate an Betrugsfällen
-
-        Density‑Plots für numerische Features
-
-    Modelle
-
-        Logistic Regression (mit GridSearchCV + SMOTE‑Varianten)
-
-        Decision Trees
-
-        Random Forest
-
-        Gradient Boosting
-
-        XGBoost
-
-        LightGBM
-
-        Neuronales Netz (TensorFlow/Keras)
-
-    Modellvergleich
-
-        ROC‑AUC
-
-        Precision
-
-        Recall
-
-        F1‑Score
-
-        Precision‑Recall‑Kurven
-
-        Threshold‑Optimierung
-
-🧹 Datenvorbereitung
-1. Entfernen unnötiger Spalten
-python
-
-X = df_bankaccounts.drop(columns=["x1", "x2", "fraud_bool"])
-y = df_bankaccounts["fraud_bool"]
-
-2. Missing Values erkennen & behandeln
-
-    Negative Werte → als fehlend markiert
-
-    Spalten mit >50 % Missing Values entfernt
-
-    Median‑Imputation für verbleibende Spalten
-
-3. Encoding
+    Erkennen & Imputieren fehlender Werte
 
     One‑Hot‑Encoding für kategoriale Variablen
 
-    Manuelles One‑Hot‑Encoding für numerische Kategorien (income, age, month)
+    MinMax‑Skalierung
 
-4. Skalierung
+    Entfernen von Low‑Variance‑Features
 
-MinMaxScaler auf alle numerischen Features.
-5. Feature Selection
+    Prüfung auf Multikollinearität
 
-    Entfernen stark korrelierter Features
+Explorative Analyse
 
-    VarianceThreshold (0.01)
+    Fraud‑Rate‑Analyse
 
-📊 Explorative Datenanalyse
+    Verteilungen aller Features
 
-    Fraud‑Rate: 1.103 %
+    Crosstabs für Einkommen, Alter, Employment Status
 
-    Barplots für Einkommen, Alter, Employment Status
+    Histogramme & KDE‑Plots
 
-    Crosstabs: Fraud‑Rate pro Kategorie
+Modelle
 
-    Histogramme & KDE‑Plots für numerische Features
+Trainierte Modelle:
 
-🤖 Modelle & Ergebnisse
-Logistic Regression
+    Logistic Regression (mit GridSearchCV + SMOTE‑Varianten)
 
-    GridSearchCV mit:
+    Random Forest
 
-        L1/L2‑Regularisierung
+    Gradient Boosting
 
-        SMOTE / BorderlineSMOTE / None
+    XGBoost
 
-        Verschiedene Solver
+    LightGBM
 
-    Bestes Ergebnis:
+    Neuronales Netz (TensorFlow/Keras)
 
-        ROC‑AUC ≈ 0.856
+Bestes Modell und Ergebnisse:  
+LightGBM mit der höchsten ROC‑AUC und dem besten F1‑Score.
 
-        Recall stark abhängig vom Threshold
+    LightGBM ROC‑AUC: ~0.88
 
-LightGBM (bestes Modell)
+    Logistic Regression und Neural Network knapp dahinter
 
-    Hyperparameter‑Tuning über GridSearchCV
+    Threshold‑Optimierung verbessert Recall deutlich
 
-    Bestes Ergebnis:
+    Precision‑Recall‑Kurven & Confusion Matrix zur Bewertung
 
-        ROC‑AUC ≈ 0.875
+Wichtiste angewandte Pakete:
 
-        Sehr gute Trennung trotz Imbalance
-
-        Recall bis 75 % erreichbar durch Threshold‑Tuning
-
-Neuronales Netz
-
-    2 Hidden Layers (64 → 32 Neuronen)
-
-    BatchNorm + Dropout
-
-    Class Weights für Imbalance
-
-    Ergebnis:
-
-        ROC‑AUC ≈ 0.862
-
-        Sehr stabil, aber LightGBM leicht besser
-
-🎯 Threshold‑Optimierung
-
-Für alle Modelle wurden Precision‑Recall‑Kurven analysiert:
-
-    Schnittpunkt Precision = Recall → optimaler F1‑Threshold
-
-    Zusätzlich: Threshold für Recall = 0.75 berechnet
-
-    Visualisierung aller Kurven
-
-📈 Modellvergleich (Testdaten)
-Modell	ROC‑AUC	Precision	Recall	F1
-Logistic Regression	~0.86	sehr niedrig	hoch (mit Threshold)	niedrig
-LightGBM	~0.88	moderat	hoch	bester F1
-Neural Network	~0.86	niedrig	hoch	ähnlich LogReg
-
-LightGBM ist das beste Modell im Projekt.
-🖼 Visualisierungen
-
-Das Projekt enthält u. a.:
-
-    ROC‑Kurven
-
-    Precision‑Recall‑Kurven
-
-    Confusion Matrices
-
-    Feature‑Verteilungen
-
-    F1‑Score‑Threshold‑Kurven
-
-    Modellvergleich als Balkendiagramm
-
-🧠 Technologien
-
-    Python
-
-    Pandas, NumPy
-
-    Scikit‑Learn
-
-    XGBoost, LightGBM
-
-    TensorFlow / Keras
-
-    Matplotlib, Seaborn
-
-    Imbalanced‑Learn
-
-🚀 Fazit
-
-Dieses Projekt zeigt einen vollständigen End‑to‑End‑Machine‑Learning‑Workflow für Fraud Detection mit stark unausgeglichenen Daten.
-Durch systematische Datenvorbereitung, Modellvergleich und Threshold‑Optimierung konnte ein leistungsstarkes Modell (LightGBM) entwickelt werden.
+Python, Pandas, NumPy, Scikit‑Learn, LightGBM, XGBoost, TensorFlow/Keras, Imbalanced‑Learn, Matplotlib, Seaborn
+    
 
