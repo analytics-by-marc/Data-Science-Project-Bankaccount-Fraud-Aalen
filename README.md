@@ -21,17 +21,17 @@ Datenvorbereitung
 
     Erkennen & Imputieren fehlender Werte
 
-    One‑Hot‑Encoding für kategoriale Variablen
+    Encoding für kategoriale Variablen
 
     MinMax‑Skalierung
 
-    Entfernen von Low‑Variance‑Features
+    Entfernen von Features mit geringer Varianz
 
     Prüfung auf Multikollinearität
 
 Explorative Analyse
 
-    Fraud‑Rate‑Analyse
+    Analyse der rate an Betrugsfällen
 
     Verteilungen aller Features
 
@@ -66,7 +66,7 @@ LightGBM mit der höchsten ROC‑AUC und dem besten F1‑Score.
 
     Precision‑Recall‑Kurven & Confusion Matrix zur Bewertung
 
-Wichtiste angewandte Pakete:
+Wichtigste angewandte Pakete:
 
 Python, Pandas, NumPy, Scikit‑Learn, LightGBM, XGBoost, TensorFlow/Keras, Imbalanced‑Learn, Matplotlib, Seaborn
     
