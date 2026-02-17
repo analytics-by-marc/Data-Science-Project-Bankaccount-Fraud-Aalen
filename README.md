@@ -2,7 +2,7 @@
 
 Erstellt mit Python Version 3.10.18
 
-bankaccount_fraud_final ist die bereinigte Version mit dne besten Modellen
+bankaccount_fraud_final ist die bereinigte Version mit den besten Modellen
 
 Projektziele
 
