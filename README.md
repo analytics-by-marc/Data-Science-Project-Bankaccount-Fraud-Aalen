@@ -72,8 +72,8 @@ LightGBM mit der höchsten ROC‑AUC und dem besten F1‑Score.
 
     Precision‑Recall‑Kurven & Confusion Matrix zur Bewertung
 
-Wichtigste angewandte Pakete:
+Wichtigste angewandte Pakete in Python:
 
-Python, Pandas, NumPy, Scikit‑Learn, LightGBM, XGBoost, TensorFlow/Keras, Imbalanced‑Learn, Matplotlib, Seaborn
+Pandas, NumPy, Scikit‑Learn, LightGBM, XGBoost, TensorFlow/Keras, Imbalanced‑Learn, Matplotlib, Seaborn
     
 
