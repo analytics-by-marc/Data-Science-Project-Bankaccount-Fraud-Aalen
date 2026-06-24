@@ -37,7 +37,7 @@ Datenvorbereitung
 
 Explorative Analyse
 
-    Analyse der rate an Betrugsfällen
+    Analyse der Rate an Betrugsfällen
 
     Verteilungen aller Features
 
